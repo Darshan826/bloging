@@ -1,0 +1,17 @@
+<%- include('UserHeader') %>
+
+<ul>
+    <li><a href="/">All (<%= allBlogs.length %>)</a></li>
+    <% allCategory.map((v,i)=>{ %>
+            <li><a href="/?catId=<%= v.id %>"><%= v.categoryName %> (<%= v.blogIds.length %>) </a></li>
+    <% }) %>
+</ul>
+
+<% allBlogs.map((v,i)=>{ %>
+<div>
+    <h2><%= v.title %></h2>
+    <p><%- v.description %></p>
+    <a href="/singlePost/<%= v.id %>">Read More</a>
+</div>
+
+<% }) %>

@@ -1,0 +1,33 @@
+<%- include('UserHeader') %>
+
+<h1>dffg</h1>
+
+
+
+
+<form method="post" action="/addComments" enctype="multipart/form-data">
+    <input type="text" name="postId" value="<%= postId %>" />
+    <input type="text" name="name" />
+    <input type="text" name="email" />
+    <input type="text" name="comment" />
+    <input type="file" name="image"/>
+    
+    <% if(locals.adminData){ %>
+        <input type="submit" value="add Comment" />
+    <% } else { %>
+        <a href="/userLogin"><input type="button" value="add Comment"></a> 
+
+    <% } %>  
+</form>
+
+<% postWiseComments.map((v,i)=>{ %>
+    <div>
+        <p><img src="<%= v.image %>"  height="50"  /></p>
+        <p><%= v.comment %></p>
+        <a href="/setLikesByUsers/<%= v.id %>">Likes (<%= v.likes.length %>)</a> || <a href="/setDislikesByUsers/<%= v.id %>"> Dislikes (<%= v.dislikes.length %>) </a>
+    </div>
+    <hr/>
+<% }) %>
+
+
+

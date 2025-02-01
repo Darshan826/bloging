@@ -1,0 +1,17 @@
+<div>
+    <ul>
+        <li>
+            <% if(locals.adminData) { %>
+                <%= locals.adminData.username %>
+            <% } else { %>
+                <a href="/userLogin">Login</a>
+            <% } %></li>
+        <li>
+            <% if(locals.adminData) { %>
+                <a href="/userLogout">Logout</a>
+            <% } else { %>
+                <a href="/userRegister">Register</a>
+            <% } %></li>
+            </li>
+    </ul>
+</div>
